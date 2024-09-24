@@ -1,5 +1,6 @@
 package br.com.danilo.gamintory.game;
 
+import br.com.danilo.gamintory.game.validation.ValidReleaseYear;
 import br.com.danilo.gamintory.user.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
@@ -30,6 +31,7 @@ public class Game {
     Integer stars;
 
     @NotBlank
+    @ValidReleaseYear
     Integer releaseYear;
 
 

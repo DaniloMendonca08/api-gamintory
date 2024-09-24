@@ -3,6 +3,7 @@ package br.com.danilo.gamintory.user;
 import br.com.danilo.gamintory.game.Game;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -23,6 +24,7 @@ public class User {
     String username;
 
     @NotBlank
+    @Size(min = 8, message = "Password must be at least 8 characters long")
     String password;
 
 

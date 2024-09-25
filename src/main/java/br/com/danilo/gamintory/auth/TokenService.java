@@ -15,7 +15,7 @@ import java.time.ZoneOffset;
 public class TokenService {
 
     private final UserRepository userRepository;
-    private Algorithm algorithm;
+    private final Algorithm algorithm;
 
     public TokenService(UserRepository userRepository, @Value("${jwt.secret}") String secret) {
         this.userRepository = userRepository;

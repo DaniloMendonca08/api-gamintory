@@ -13,4 +13,5 @@ public interface GameRepository extends JpaRepository<Game, Long> {
     List<Game> findByStars(Integer stars);
 
     List<Game> findByReleaseYear(Integer releaseYear);
+
 }

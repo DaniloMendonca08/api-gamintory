@@ -1,6 +1,8 @@
 package br.com.danilo.gamintory.game;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,8 +17,8 @@ public class GameService {
         return repository.save(game);
     }
 
-    public List<Game> findAll() {
-        return repository.findAll();
+    public Page<Game> findAll(Pageable pageable) {
+        return repository.findAll(pageable);
     }
 
     public List<Game> findByName(String name) {

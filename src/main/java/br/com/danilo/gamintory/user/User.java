@@ -30,7 +30,7 @@ public class User {
 
     LocalDateTime createdAt;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL)
     private List<Game> games;
 
     @PrePersist

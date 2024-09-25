@@ -54,7 +54,7 @@ public class AuthorizationFilter extends OncePerRequestFilter {
             var auth = new UsernamePasswordAuthenticationToken(
                     user.getUsername(),
                     user.getPassword(),
-                    List.of(new SimpleGrantedAuthority("USER"))
+                    List.of(new SimpleGrantedAuthority("ADMIN"))
             );
 
             SecurityContextHolder.getContext().setAuthentication(auth);

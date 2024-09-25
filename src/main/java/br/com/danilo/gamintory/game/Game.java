@@ -1,22 +1,26 @@
 package br.com.danilo.gamintory.game;
-
 import br.com.danilo.gamintory.game.validation.ValidReleaseYear;
-import br.com.danilo.gamintory.user.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "gamintory_games")
+@Table(name = "GAMINTORY_GAMES") // Use a convenção de nomenclatura correta
 @Data
 public class Game {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "game_id") // Mapeia para a coluna correta na tabela
+    Long gameId;
+
+    @Column(name = "user_id")
+    Long userId;
 
     @NotBlank
     String name;
@@ -30,26 +34,24 @@ public class Game {
     @Max(5)
     Integer stars;
 
-    @NotBlank
+    @NotNull
     @ValidReleaseYear
+    @Column(name = "release_year")
     Integer releaseYear;
 
-
-    Long timePlayedInHours;
+    Long time_played_in_hours;
 
     @NotBlank
-    String gameCover;
+    String game_cover;
+
+    LocalDateTime added_at;
 
 
-    LocalDateTime addedAt;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
 
     @PrePersist
     protected void onCreate() {
-        addedAt = LocalDateTime.now();
+        added_at = LocalDateTime.now();
     }
 
 }
+
